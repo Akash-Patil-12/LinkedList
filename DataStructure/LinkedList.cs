@@ -81,6 +81,19 @@ namespace DataStructure
             return this.head;
         }
         /// <summary>
+        /// Remove first node
+        /// </summary>
+        /// <returns></returns>
+        internal void RemoveFirst()
+        {
+            if (this.head == null)
+            {
+                Console.WriteLine("list is empty");
+
+            }
+            this.head = this.head.next;
+        }
+        /// <summary>
         /// Show list all data
         /// </summary>
         internal void ShowList()
@@ -91,6 +104,7 @@ namespace DataStructure
                 Console.Write(temp.data+" ");
                 temp = temp.next;
             }
+            Console.WriteLine();
         }
         
     }
