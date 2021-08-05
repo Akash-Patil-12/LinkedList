@@ -49,6 +49,38 @@ namespace DataStructure
             Console.WriteLine("{0} inserted at first position in list", node.data);
         }
         /// <summary>
+        /// Insert at pertiqular position
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        internal Node InsertAtParticularPosition(int position, int data)
+        {
+            Node newNode = new Node(data);
+            if (this.head == null)
+            {
+                return newNode;
+            }
+            if (position == 0)
+            {
+                newNode.next = this.head;
+                this.head = newNode;
+                return this.head;
+            }
+            Node prev = null;
+            Node current = this.head;
+            int count = 0;
+            while (current != null && count < position)
+            {
+                prev = current;
+                current = current.next;
+                count++;
+            }
+            newNode.next = prev.next;
+            prev.next = newNode;
+            return this.head;
+        }
+        /// <summary>
         /// Show list all data
         /// </summary>
         internal void ShowList()
