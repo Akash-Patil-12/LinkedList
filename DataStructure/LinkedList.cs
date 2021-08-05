@@ -106,6 +106,26 @@ namespace DataStructure
             }
             Console.WriteLine();
         }
-        
+        /// <summary>
+        /// Remove list node 
+        /// </summary>
+        /// <returns></returns>
+        internal void RemoveLast()
+        {
+            if (head == null)
+            {
+                Console.WriteLine("list is empty");
+            }
+            if (head.next == null)
+            {
+                Console.WriteLine("list is empty");
+            }
+            Node newNode = head;
+            while (newNode.next.next != null)
+            {
+                newNode = newNode.next;
+            }
+            newNode.next = null;
+        }
     }
 }

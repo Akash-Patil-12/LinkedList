@@ -12,7 +12,7 @@ namespace DataStructure
             list.Add(70);
             Console.Write("List is :");
             list.ShowList();
-            list.RemoveFirst();
+            list.RemoveLast();
             Console.Write("After deletion List is :");
             list.ShowList();
         }
