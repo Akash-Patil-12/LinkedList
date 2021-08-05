@@ -23,14 +23,16 @@ namespace DataStructure
                 Node temp = head;
                 while (temp.next != null)
                 {
-                 //   Console.WriteLine("Node :" + temp.data);
                     temp = temp.next;
                 }
                 temp.next = node;
-
             }
             Console.WriteLine("{0} inserted into linked list", node.data);
         }
+        /// <summary>
+        /// Add new data at first position
+        /// </summary>
+        /// <param name="data"></param>
         internal void AddFirst(int data)
         {
             Node node = new Node(data);
@@ -46,6 +48,9 @@ namespace DataStructure
             }
             Console.WriteLine("{0} inserted at first position in list", node.data);
         }
+        /// <summary>
+        /// Show list all data
+        /// </summary>
         internal void ShowList()
         {
             Node temp = this.head;
