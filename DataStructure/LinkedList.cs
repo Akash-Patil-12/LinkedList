@@ -11,7 +11,7 @@ namespace DataStructure
         /// Add new data into linked list
         /// </summary>
         /// <param name="data"></param>
-        internal void Add(int data)
+        public void Add(int data)
         {
             Node node = new Node(data);
             if (this.head == null)
@@ -89,7 +89,6 @@ namespace DataStructure
             if (this.head == null)
             {
                 Console.WriteLine("list is empty");
-
             }
             this.head = this.head.next;
         }
@@ -126,6 +125,19 @@ namespace DataStructure
                 newNode = newNode.next;
             }
             newNode.next = null;
+        }
+        public bool Search(int data)
+        {
+            Node tempHead = this.head;
+            while (tempHead != null)
+            {
+                if (tempHead.data == data)
+                {
+                    return true;
+                }
+                tempHead = tempHead.next;
+            }
+            return false;
         }
     }
 }

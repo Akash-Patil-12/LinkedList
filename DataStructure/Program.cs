@@ -9,12 +9,13 @@ namespace DataStructure
             LinkedList list = new LinkedList();
             list.Add(56);
             list.Add(30);
-            list.Add(70);
+            list.Add(60);
             Console.Write("List is :");
             list.ShowList();
-            list.RemoveLast();
-            Console.Write("After deletion List is :");
-            list.ShowList();
+            if (list.Search(30))
+                Console.WriteLine("Number present");
+            else
+                Console.WriteLine("Number not present");
         }
     }
 }
