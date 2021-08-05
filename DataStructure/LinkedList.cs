@@ -31,6 +31,30 @@ namespace DataStructure
             }
             Console.WriteLine("{0} inserted into linked list", node.data);
         }
+        internal void AddFirst(int data)
+        {
+            Node node = new Node(data);
+            if (this.head == null)
+            {
+                this.head = node;
+            }
+            else
+            {
+                Node temp =this.head;
+                head = node;
+                head.next = temp;
+            }
+            Console.WriteLine("{0} inserted at first position in list", node.data);
+        }
+        internal void ShowList()
+        {
+            Node temp = this.head;
+            while (temp != null)
+            {
+                Console.Write(temp.data+" ");
+                temp = temp.next;
+            }
+        }
         
     }
 }
