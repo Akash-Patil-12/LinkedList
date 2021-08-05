@@ -54,22 +54,22 @@ namespace DataStructure
         /// <param name="position"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        internal Node InsertAtParticularPosition(int position, int data)
+        public bool InsertAtParticularPosition(int position, int data)
         {
             Node newNode = new Node(data);
             if (this.head == null)
             {
-                return newNode;
+                return false;
             }
             if (position == 0)
             {
                 newNode.next = this.head;
                 this.head = newNode;
-                return this.head;
+                return true;
             }
             Node prev = null;
             Node current = this.head;
-            int count = 0;
+            int count = 1;
             while (current != null && count < position)
             {
                 prev = current;
@@ -78,7 +78,7 @@ namespace DataStructure
             }
             newNode.next = prev.next;
             prev.next = newNode;
-            return this.head;
+            return true;
         }
         /// <summary>
         /// Remove first node
@@ -126,6 +126,11 @@ namespace DataStructure
             }
             newNode.next = null;
         }
+        /// <summary>
+        /// Search specific number is present or not 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public bool Search(int data)
         {
             Node tempHead = this.head;
@@ -136,6 +141,34 @@ namespace DataStructure
                     return true;
                 }
                 tempHead = tempHead.next;
+            }
+            return false;
+        }
+        /// <summary>
+        /// Find specific number if number present insert data 
+        /// </summary>
+        /// <param name="searchData"></param>
+        /// <param name="insertData"></param>
+        /// <returns></returns>
+        public bool SearchAndInsert(int searchData,int insertData)
+        {
+            Node node = new Node(insertData);
+            Node previous = null;
+            Node tempNode = this.head;
+            if (tempNode == null)
+            {
+                return false;
+            }
+            while (tempNode != null)
+            {
+                previous = tempNode.next;
+                if (tempNode.data == searchData)
+                {
+                    tempNode.next = node;
+                    node.next = previous;
+                    return true;
+                }
+                tempNode = tempNode.next;
             }
             return false;
         }
