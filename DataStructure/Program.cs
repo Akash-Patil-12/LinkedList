@@ -6,16 +6,16 @@ namespace DataStructure
     {
         static void Main(string[] args)
         {
-            LinkedList list = new LinkedList();
-            list.Add(56);
-            list.Add(30);
-            list.Add(40);
-            list.Add(70);
-            Console.WriteLine("Linked list before delete");
-            list.ShowList();
-            list.SearchAndDelete(40);
-            Console.WriteLine("Linked list After delete");
-            list.ShowList();
+            SortingList<int> list = new SortingList<int>();
+            list.AddNode(56);
+            list.AddNode(30);
+            list.AddNode(40);
+            list.AddNode(70);
+            Console.WriteLine("Before Sort list is :");
+            list.Show();
+            list.SortOrderList();
+            Console.WriteLine("After Sort list is :");
+            list.Show();
         }
     }
 }
