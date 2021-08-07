@@ -9,14 +9,12 @@ namespace DataStructure
             LinkedList list = new LinkedList();
             list.Add(56);
             list.Add(30);
+            list.Add(40);
             list.Add(70);
-            Console.Write("List is :");
+            Console.WriteLine("Linked list before delete");
             list.ShowList();
-            if (list.SearchAndInsert(30,40))
-                Console.WriteLine("Number Inserted");
-            else
-                Console.WriteLine("Number not Inserted");
-            Console.Write("After insertion List is :");
+            list.SearchAndDelete(40);
+            Console.WriteLine("Linked list After delete");
             list.ShowList();
         }
     }

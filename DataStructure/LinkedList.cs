@@ -11,12 +11,13 @@ namespace DataStructure
         /// Add new data into linked list
         /// </summary>
         /// <param name="data"></param>
-        public void Add(int data)
+        public int Add(int data)
         {
             Node node = new Node(data);
             if (this.head == null)
             {
                 this.head = node;
+                return data;
             }
             else
             {
@@ -26,27 +27,31 @@ namespace DataStructure
                     temp = temp.next;
                 }
                 temp.next = node;
+                return data;
             }
-            Console.WriteLine("{0} inserted into linked list", node.data);
+            return data;
         }
         /// <summary>
         /// Add new data at first position
         /// </summary>
         /// <param name="data"></param>
-        internal void AddFirst(int data)
+        public int AddFirst(int data)
         {
             Node node = new Node(data);
             if (this.head == null)
             {
                 this.head = node;
+                return data;
             }
             else
             {
                 Node temp =this.head;
                 head = node;
                 head.next = temp;
+                return data;
             }
             Console.WriteLine("{0} inserted at first position in list", node.data);
+            return 0;
         }
         /// <summary>
         /// Insert at pertiqular position
@@ -171,6 +176,52 @@ namespace DataStructure
                 tempNode = tempNode.next;
             }
             return false;
+        }
+        /// <summary>
+        /// Search specific element if found delete it from list
+        /// </summary>
+        /// <param name="searchData"></param>
+        /// <returns></returns>
+        public bool SearchAndDelete(int searchData)
+        {
+            Node previous = this.head;
+            if (previous == null)
+            {
+                return false;
+            }
+            if (previous.data == searchData)
+            {
+                this.head = null;
+                return true;
+            }
+            Node tempNode = this.head.next;
+
+            while (tempNode != null)
+            {
+                if (tempNode.data == searchData)
+                {
+                    previous.next = tempNode.next;
+                    return true;
+                }
+                previous = tempNode;
+                tempNode = tempNode.next;
+            }
+            return false;
+        }
+        /// <summary>
+        /// Return size of list
+        /// </summary>
+        /// <returns></returns>
+        public int Size()
+        {
+            Node tempNode = this.head;
+            int count = 0;
+            while (tempNode != null)
+            {
+                count++;
+                tempNode = tempNode.next;
+            }
+            return count;
         }
     }
 }
